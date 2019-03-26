@@ -5,9 +5,11 @@ kubeadm_init:
 
 kubeconfig:
   cmd.run:
-  - name: mkdir /root/.kube && cp /etc/kubernetes/admin.conf /root/.kube/config
-  - unless: test -f /root/.kube/config
+  - name: mkdir /home/vagrant/.kube && cp /etc/kubernetes/admin.conf /home/vagrant/.kube/config && chown -R vagrant:vagrant /home/vagrant
+  - unless: test -f /home/vagrant/.kube/config
 
 install_cni:
   cmd.run:
+  - env:
+    - KUBECONFIG: /etc/kubernetes/admin.conf
   - name: kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"
