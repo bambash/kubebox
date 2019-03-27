@@ -1,6 +1,6 @@
 kubeadm_init:
   cmd.run:
-  - name: kubeadm init
+  - name: kubeadm init --config /vagrant/master.yaml
   - unless: test -f /etc/kubernetes/admin.conf
 
 kubeconfig:

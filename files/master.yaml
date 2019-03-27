@@ -1,0 +1,26 @@
+apiVersion: kubeadm.k8s.io/v1beta1
+bootstrapTokens:
+- groups:
+  - system:bootstrappers:kubeadm:default-node-token
+  token: abcdef.0123456789abcdef
+  ttl: "0"
+  usages:
+  - signing
+  - authentication
+kind: InitConfiguration
+---
+apiVersion: kubeadm.k8s.io/v1beta1
+kind: ClusterConfiguration
+kubernetesVersion: v1.14.0
+apiServer:
+  certSANs:
+  - localhost
+  - kubebox
+  - 127.0.0.1
+  - 172.17.99.10
+  - 10.0.2.15
+  - kubernetes.default
+  - kubernetes.default.svc.cluster.local
+  extraArgs:
+    enable-admission-plugins: "AlwaysPullImages,DefaultStorageClass"
+controlPlaneEndpoint: 172.17.99.10:6443

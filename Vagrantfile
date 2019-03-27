@@ -11,6 +11,7 @@ Vagrant.configure("2") do |config|
 
   # folder sync for salt
   config.vm.synced_folder "./salt", "/srv/salt"
+  config.vm.synced_folder "./files", "/vagrant"
 
   # vm settings
   config.vm.provider "virtualbox" do |vb|
@@ -25,6 +26,7 @@ Vagrant.configure("2") do |config|
     salt.masterless = true
     salt.minion_config = "salt/minion"
     salt.run_highstate = true
+    salt.verbose = true
   end
 end
 
