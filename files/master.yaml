@@ -18,6 +18,9 @@ apiServer:
   - kubebox
   - 127.0.0.1
   - 172.17.99.10
+  - 172.17.99.11
+  - 172.17.99.12
+  - 172.17.99.20
   - 10.0.2.15
   - kubernetes.default
   - kubernetes.default.svc.cluster.local
