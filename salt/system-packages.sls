@@ -4,3 +4,4 @@ install_system_packages:
       - vim
       - curl
       - wget
+      - jq

@@ -15,7 +15,8 @@ kubernetesVersion: v1.14.0
 apiServer:
   certSANs:
   - localhost
-  - kubebox
+  - kubebox-master-01
+  - kubebox-master-02
   - 127.0.0.1
   - 172.17.99.10
   - 172.17.99.11
